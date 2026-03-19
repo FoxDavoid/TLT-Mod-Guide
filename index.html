@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="description" content="Sapphire Guide">
+  <meta name="author" content="Fox David">
+  <meta name="title" content="Sapphire Guide">
+  <meta name="language" content="English">
+  <meta name="revisit-after" content="60 days">
+  <meta name="distribution" content="global">
+  <meta name="rating" content="general">
+  <meta name="theme-color" content="#0A0A0A">
+  <title>Sapphire Guide</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@800&family=Space+Mono:wght@400;700&family=JetBrains+Mono:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Sapphire Guide</h1>
+    <h2 id="know-the-commands">Know the commands</h2>
+    <h3 id="base-commands">Base commands</h3>
+    <p>This part of the guide is 100% intuitive, and you'll be familiar with all this by now. The base commands are essentially warn, ban, kick, and mute.</p>
+    <p>Just remember this structure</p>
+    <div class="example-structure">
+      <code><span class="example-prefix">tlt![something]</span> <span class="example-arguments">[arguments for the command]</span></code>
+    </div>
+    <p>Some things to have in mind beforehand. When mentioning:</p>
+    <ul>
+      <li><b>Users:</b> you can either <b>ping the user</b> in the <code>#mod-lab</code> channel (the user won't receive any pings or notifications), <b>or use their user ID</b> (this one is Sam Haft's: 421378003101286410). <b>Whenever you see "@user/userID"</b>, this is where you have to use any of those.</li>
+      <li><b>Time:</b> 5s (five seconds), 6m (six minutes), 3h (three hours), 9d (nine days), 2w (two weeks), 6mon (six months), 8y (eight years)</li>
+      <li><b>Reasons:</b> these go at the end of the command, all the time.</li>
+    </ul>
+    <div class="example-structure">
+      <code><span class="example-prefix">tlt!warn</span> <span class="example-user">@Sam Haft</span> <span class="example-time">1y</span> <span class="example-reason">hasn't released Armstrong</span></code>
+    </div>
+    <p>Example of one command that uses all the mentioned arguments.</p>
+    <p><b>IMPORTANT:</b> The commands are technically flexible. See the structure and notice that some arguments are just part of the command/structure and not 100% needed. Still, I set up the bot so that some are actually needed for many cases. I'll let you know when that applies.</p>
+
+    <div class="commands-section">
+      <div class="group-of-commands">
+        <div class="command">
+          <h4>Usernotes (tlt!usernotes)</h4>
+          <p>Displays (or takes) notes about a user.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!usernotes</span> <span class="example-user">@user/userID</span> <span class="example-reason">[note]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!usernotes</span> <span class="example-user">@Sam Haft</span> <span class="example-reason">hasn't offered autographs</span></code>
+          </div>
+          <img src="/img/usernotes.webp" alt="Usernotes command result" loading="lazy" decoding="async">
+          <p>When only typing the command without the note argument, it will show a list of the notes that were taken on that user, starting with the oldest one.</p>
+          <img src="/img/usernotes_dropdown.webp" alt="Usernotes dropdown" loading="lazy" decoding="async">
+          <p>With the dropdown menu below, you can easily click on a note and remove it. The message will update showing the current notes (without the recently deleted one).</p>
+          <img src="/img/usernotes_add.modal.webp" alt="Usernotes add modal" loading="lazy" decoding="async">
+          <p>When clicking on the green "Add note" button, you'll get this modal asking you for some text input. This will be the new note for the user.</p>
+          <img src="/img/usernotes.result.webp" alt="Usernotes result after modal" loading="lazy" decoding="async">
+          <p>As you can see, the typed in note using the modal is now part of the list, which automatically updated without triggering the command again.</p>
+          <img src="/img/usernotes_add.inline.webp" alt="Usernotes inline add" loading="lazy" decoding="async">
+          <p>You can also directly add a note when triggering the command by providing the note as the last argument, using the structure I gave you just before.</p>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!usernotes</span> <span class="example-user">@user/userID</span> <span class="example-reason">[note]</span></code>
+          </div>
+          <h6>Usage</h6>
+          <p>This one deserves to be the first one to be taught. This command will lead to some kind of "documentation" on users. It is essentially to keep track on a user without actually warning them or keeping it all relying on the mod chat.</p>
+          <p>You can usually take notes on a user once they have been discussed about in the mod chat, which is the most common situation, still you can straight up add a note when you just don't want to warn the user <b><em>yet</em></b>. This way, triggering the command in the future will give more and more reasons (or info) to keep an eye on the user or straight up proceed with an action.</p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="commands-section">
+      <div class="group-of-commands">
+        <div class="command">
+          <h4>Warn (tlt!warn)</h4>
+          <p>Warns one user (only one).</p>
+          <p>The moderator must give a reason for the warning.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <p>When the user has been warned for the second time, they'll also get muted for one month.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!warn</span> <span class="example-user">@user/userID</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!warn</span> <span class="example-user">@Sam Haft</span> <span class="example-time">1y</span> <span class="example-reason">hasn't released Armstrong</span></code>
+          </div>
+          <img src="/img/warn.webp" alt="Warn command result" loading="lazy" decoding="async">
+          <h6>Usage</h6>
+          <p>The first punishment you have to learn; your first power. From now on, you'll find yourself using this one quite a lot. A user breaks a rule, you warn them, just do it until they happen to break another one for the third time, getting themselves banned automatically. No need for a mental list, nor your memory skills, just keep warning users left and right until they trigger their own fate.</p>
+          <p>I know it's been mentioned that the warning command has a time argument, but here at TLT warnings are set (and meant) to be permanent. So, we don't need to use the time argument for the command, and never have to.</p>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!warn</span> <span class="example-user">@Sam Haft</span> <span class="example-reason">hasn't released Armstrong</span></code>
+          </div>
+          <p>This is enough. And this is the structure you'll find yourself using so much.</p>
+          <p>There will be cases where directly banning will be the most logical option, so take all this with a grain of salt.</p>
+          <p>I'm still rewriting the mod rules so that I can perfectly define and list the standards for every action or infraction, so please be patient (very, very patient). <b>THIS WEBSITE IS STILL IN BETA.</b></p>
+        </div>
+    
+        <div class="command">
+          <h4>Warns (tlt!warns)</h4>
+          <p>Displays a list of warns from the user. Starting with the oldest one.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!warns</span> <span class="example-user">@user/userID</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!warns</span> <span class="example-user">@Sam Haft</span></code>
+          </div>
+          <img src="/img/warns.webp" alt="Warns command result" loading="lazy" decoding="async">
+        </div>
+    
+        <div class="command">
+          <h4>Unwarn (tlt!unwarn)</h4>
+          <p>Removes <b>ALL WARNINGS</b> from one user.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unwarn</span> <span class="example-user">@user/userID</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unwarn</span> <span class="example-user">@Sam Haft</span></code>
+          </div>
+          <img src="/img/unwarn.webp" alt="Unwarn command result" loading="lazy" decoding="async">
+          <p>Unwarn the user only when THE USER AS A WHOLE deserves to be unwarned. By unwarning you get all their warnings back to zero.</p>
+          <p>It is recommended to discuss it with the mod team before the final decision, but you can do it too.</p>
+        </div>
+      </div>
+  
+      <div class="group-of-commands">
+        <div class="command">
+          <h4>Ban (tlt!ban)</h4>
+          <p>Bans one user (only one).</p>
+          <p>The moderator must give a reason for the ban.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!ban</span> <span class="example-user">@user/userID</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!ban</span> <span class="example-user">@Sam Haft</span> <span class="example-time">1y</span> <span class="example-reason">lactose intolerant</span></code>
+          </div>
+          <img src="/img/ban.webp" alt="Ban command result" loading="lazy" decoding="async">
+          <h6>Usage</h6>
+          <p>Our main reasons for manually blocking the access for some users are usually:</p>
+          <ul>
+            <li>Alt accounts from banned members</li>
+            <li>Members who said/did things that are straight up against any basic human morals</li>
+            <li>Accounts taken by another person through hacking (impersonation)</li>
+          </ul>
+          <p>As I said, I'm still rewriting the mod rules so that I can perfectly define and list the standards for every action or infraction, so please be patient (very, very, very patient). <b>REMEMBER THAT THIS WEBSITE IS STILL IN BETA.</b></p>
+        </div>
+    
+        <div class="command">
+          <h4>Unban (tlt!unban)</h4>
+          <p>Unbans the user, letting them have access to the server.</p>
+          <p>The moderator can add a reason for unbanning them, but it's not mandatory.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unban</span> <span class="example-user">@user/userID</span> <span class="example-reason">[reason]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unban</span> <span class="example-user">@Sam Haft</span> <span class="example-reason">lactose intolerant</span></code>
+          </div>
+          <img src="/img/unban.webp" alt="Unban command result" loading="lazy" decoding="async">
+        </div>
+      </div>
+  
+      <div class="command">
+        <h4>Kick (tlt!kick)</h4>
+        <p>Kicks the user, doesn't ban them. They can join back with an invite link.</p>
+        <p>The moderator must give a reason.</p>
+        <p>The user will receive a DM from Sapphire.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!kick</span> <span class="example-user">@user/userID</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!kick</span> <span class="example-user">@Sam Haft</span> <span class="example-reason">posted an announcement about bread in the shower</span></code>
+        </div>
+        <img src="/img/kick.webp" alt="Kick command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="group-of-commands">
+        <div class="command">
+          <h4>Mute (tlt!mute)</h4>
+          <p>Mutes the user so they can't talk or interact in text channels.</p>
+          <p>The moderator must give a reason for muting them.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!mute</span> <span class="example-user">@user/userID</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!mute</span> <span class="example-user">@Sam Haft</span> <span class="example-time">1y</span> <span class="example-reason">noticed that a channel has been deleted/archived</span></code>
+          </div>
+          <img src="/img/mute.webp" alt="Mute command result" loading="lazy" decoding="async">
+        </div>
+    
+        <div class="command">
+          <h4>Unmute (tlt!unmute)</h4>
+          <p>Unmutes the user.</p>
+          <p>The moderator can add a reason for unmuting them, but it's not mandatory.</p>
+          <p>The user will receive a DM from Sapphire.</p>
+          <h5>Syntax</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unmute</span> <span class="example-user">@user/userID</span> <span class="example-reason">[reason]</span></code>
+          </div>
+          <h5>Example</h5>
+          <div class="example-structure">
+            <code><span class="example-prefix">tlt!unmute</span> <span class="example-user">@Sam Haft</span> <span class="example-reason">noticed that a channel has been deleted/archived</span></code>
+          </div>
+          <img src="/img/unmute.webp" alt="Unmute command result" loading="lazy" decoding="async">
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── Mass Commands -->
+    <div class="commands-section">
+      <h3 id="mass-commands">Mass commands</h3>
+      <p>The base commands only work for a single user, but you can also trigger the commands for multiple users thanks to the mass-commands. Don't worry, these are the same old four we know: warn, ban, kick, mute. You must know how the base commands work since they behave the very same way, but adding another possibility.</p>
+      <h6>Just remember:</h6>
+      <p>The structure of the command:</p>
+      <div class="example-structure">
+        <code><span class="example-prefix">tlt!mass[warn/ban/kick/mute]</span> <span class="example-arguments">[arguments for the command]</span></code>
+      </div>
+      <p>All users will be punished using the same reason, time, and getting DMed about it too.</p>
+      <img src="/img/masswarn_pre.webp" alt="Mass command confirmation prompt" loading="lazy" decoding="async">
+      <p>After triggering a mass command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+      <img src="/img/masswarn_review.webp" alt="Mass command review window" loading="lazy" decoding="async">
+      <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it, I don't know.</p>
+      <p>In case you wonder why this must be done for every of these commands, it's because it's not Sapphire's menu, but Discord's. Massive actions like masswarning, massbanning, etc. require Sapphire to tell Discord that a human user asked for it.</p>
+      <img src="/img/warn.webp" alt="Warn command result" loading="lazy" decoding="async">
+      <p>Once done, the command is successfully triggered.</p>
+  
+      <div class="command">
+        <h4>Masswarn (tlt!masswarn)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!masswarn</span> <span class="example-user">@user1/userID1</span> <span class="example-user">@user2/userID2</span> <span class="example-user">@user3/userID3</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!masswarn</span> <span class="example-user">@Sam Haft</span> <span class="example-user">@YoavLandau</span> <span class="example-user">@grimmiereaper</span> <span class="example-time">3m</span> <span class="example-reason">haven't leaked Armstrong</span></code>
+        </div>
+        <img src="/img/masswarn_pre.webp" alt="Masswarn confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/masswarn_review.webp" alt="Masswarn review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it, I don't know.</p>
+        <img src="/img/masswarn.webp" alt="Masswarn result" loading="lazy" decoding="async">
+        <p>All the mentioned users will be warned.</p>
+      </div>
+  
+      <div class="command">
+        <h4>Massban (tlt!massban)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!massban</span> <span class="example-user">@user1/userID1</span> <span class="example-user">@user2/userID2</span> <span class="example-user">@user3/userID3</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!massban</span> <span class="example-user">@Sam Haft</span> <span class="example-user">@YoavLandau</span> <span class="example-user">@grimmiereaper</span> <span class="example-time">3m</span> <span class="example-reason">haven't leaked Armstrong</span></code>
+        </div>
+        <img src="/img/massban_pre.webp" alt="Massban confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/massban_review.webp" alt="Massban review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it, I don't know.</p>
+        <img src="/img/massban.webp" alt="Massban result" loading="lazy" decoding="async">
+        <p>All the mentioned users will be banned.</p>
+      </div>
+  
+      <div class="command">
+        <h4>Masskick (tlt!masskick)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!masskick</span> <span class="example-user">@user1/userID1</span> <span class="example-user">@user2/userID2</span> <span class="example-user">@user3/userID3</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!masskick</span> <span class="example-user">@Sam Haft</span> <span class="example-user">@YoavLandau</span> <span class="example-user">@grimmiereaper</span> <span class="example-time">3m</span> <span class="example-reason">haven't leaked Armstrong</span></code>
+        </div>
+        <img src="/img/masskick_pre.webp" alt="Masskick confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/masskick_review.webp" alt="Masskick review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/masskick.webp" alt="Masskick result" loading="lazy" decoding="async">
+        <p>All the mentioned users will be kicked.</p>
+      </div>
+  
+      <div class="command">
+        <h4>Massmute (tlt!massmute)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!massmute</span> <span class="example-user">@user1/userID1</span> <span class="example-user">@user2/userID2</span> <span class="example-user">@user3/userID3</span> <span class="example-time">60s/3w/3mon/1y</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!massmute</span> <span class="example-user">@Sam Haft</span> <span class="example-user">@YoavLandau</span> <span class="example-user">@grimmiereaper</span> <span class="example-time">3m</span> <span class="example-reason">haven't leaked Armstrong</span></code>
+        </div>
+        <img src="/img/massmute_pre.webp" alt="Massmute confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/massmute_review.webp" alt="Massmute review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/massmute.webp" alt="Massmute result" loading="lazy" decoding="async">
+        <p>All the mentioned users will be muted.</p>
+      </div>
+    </div>
+
+    <!-- ─── Name Commands -->
+    <div class="commands-section">
+      <h3 id="name-commands">Name commands</h3>
+      <p>The base commands only work for a single user, but using name-commands you can trigger them for all the users that have something as their name. Don't worry, these are the same old four we know: warn, ban, kick, mute.</p>
+      <p>Just remember this structure</p>
+      <div class="example-structure">
+        <code><span class="example-prefix">tlt!name[warn/ban/kick/mute]</span> <span class="example-user">[word/term/text]</span></code>
+      </div>
+  
+      <div class="command">
+        <h4>Namewarn (tlt!namewarn)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namewarn</span> <span class="example-arguments">[text]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namewarn</span> <span class="example-arguments">haft</span></code>
+        </div>
+        <img src="/img/namewarn_pre.webp" alt="Namewarn confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/namewarn_review.webp" alt="Namewarn review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/namewarn.webp" alt="Namewarn result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Nameban (tlt!nameban)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!nameban</span> <span class="example-arguments">[text]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!nameban</span> <span class="example-arguments">haft</span></code>
+        </div>
+        <img src="/img/nameban_pre.webp" alt="Nameban confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/nameban_review.webp" alt="Nameban review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/nameban.webp" alt="Nameban result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Namekick (tlt!namekick)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namekick</span> <span class="example-arguments">[text]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namekick</span> <span class="example-arguments">haft</span></code>
+        </div>
+        <img src="/img/namekick_pre.webp" alt="Namekick confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/namekick_review.webp" alt="Namekick review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/namekick.webp" alt="Namekick result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Namemute (tlt!namemute)</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namemute</span> <span class="example-arguments">[text]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!namemute</span> <span class="example-arguments">haft</span></code>
+        </div>
+        <img src="/img/namemute_pre.webp" alt="Namemute confirmation" loading="lazy" decoding="async">
+        <p>After triggering the command, you will be asked to review the punishment or cancel it. If you are sure about it, click on the eye.</p>
+        <img src="/img/namemute_review.webp" alt="Namemute review" loading="lazy" decoding="async">
+        <p>This window will pop up, and the only field you have to pay attention to is the reason for the punishment. Use the other fields only if you feel like it.</p>
+        <img src="/img/namemute.webp" alt="Namemute result" loading="lazy" decoding="async">
+        <p><strong>IMPORTANT:</strong> This group of commands can't use arguments like time (1d/2y) or <code>[reason]</code>. The reason is that all that follows <code>"tlt!name[something]"</code> will be taken as the text you want to punish the users for. Using <code>tlt!namewarn haft 5mon using haft as name</code> will warn all users with "haft 5mon using haft as name" as part of their names (hope I made it make sense.)</p>
+      </div>
+    </div>
+
+    <!-- ─── Purge Messages -->
+    <div class="commands-section">
+      <h3 id="purge-messages">Purge messages</h3>
+      <p>Massdeletes messages. It can be triggered for a number of messages, messages from a user, number of messages from a user, an amount of time, or a range of messages.</p>
+      <p>Pay attention to the following structures.</p>
+  
+      <div class="command">
+        <h4>Purge a number of messages</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">[number]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">200</span></code>
+        </div>
+        <p>The last 200 messages in the channel will be deleted instantly.</p>
+        <img src="/img/purge_number.webp" alt="Purge number result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Purge messages within a range of time</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-time">60s/3w/3mon/1y</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-time">3w</span></code>
+        </div>
+        <p>All messages from the last three weeks in that channel will be deleted.</p>
+        <img src="/img/purge_time.webp" alt="Purge time result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Purge messages within a range</h4>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">IDofStartingMessage IDofEndingMessage</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">1482233298708205709 1482238348532912248</span></code>
+        </div>
+        <p>All the messages between the first given message and the last one will be deleted.</p>
+        <img src="/img/purge_range.webp" alt="Purge range result" loading="lazy" decoding="async">
+      </div>
+  
+      <h3>Examples of combinations</h3>
+      <div class="example-structure">
+        <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">10</span> <span class="example-user">@Sam Haft</span></code>
+      </div>
+      <p>Deletes the last 10 Sam Haft's messages in the channel.</p>
+      <img src="/img/purge_number.user.webp" alt="Purge number user" loading="lazy" decoding="async">
+      <div class="example-structure">
+        <code><span class="example-prefix">tlt!purge</span> <span class="example-time">5m</span> <span class="example-user">@Sam Haft</span></code>
+      </div>
+      <p>Deletes all messages Sam Haft has sent in the last 5 minutes.</p>
+      <img src="/img/purge_time.user.webp" alt="Purge time user" loading="lazy" decoding="async">
+      <div class="example-structure">
+        <code><span class="example-prefix">tlt!purge</span> <span class="example-arguments">1482517291257172178 1482568463351550062</span> <span class="example-user">@Sam Haft</span></code>
+      </div>
+      <p>Any message by Sam Haft that is between the starting and ending message will be deleted.</p>
+      <img src="/img/purge_range.user.webp" alt="Purge range user" loading="lazy" decoding="async">
+    </div>
+
+    <!-- ─── Channel Locking -->
+    <div class="commands-section">
+      <h3 id="channel-locking">Channel locking</h3>
+      <p>There might be occasions where you want to instantly block users from texting, be it in a channel or all of them. This command makes the <code>@everyone</code> lose their texting perms.</p>
+      <p>If you lock a VC channel, it will also disconnect anyone from it.</p>
+      <p>Giving a reason for locking the channel(s) is totally optional.</p>
+  
+      <div class="command">
+        <h4>Lock (tlt!lock)</h4>
+        <p>Locks a single channel</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!lock</span> <span class="example-channel">#channel</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Examples</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!lock</span></code>
+        </div>
+        <p>Locks the current channel you sent the message in.</p>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!lock</span> <span class="example-channel">#general</span> <span class="example-reason">massive server raid massive server raid massive server raid</span></code>
+        </div>
+        <p>Locks the channel you want, whichever you are in. In this case, you are locking <code>#general</code> using another channel. It also sets "massive server raid massive server raid massive server raid" as reason for locking (optional).</p>
+        <img src="/img/lock.webp" alt="Lock command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Unlock (tlt!unlock)</h4>
+        <p>Unlocks a single channel</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!unlock</span> <span class="example-channel">#channel</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Examples</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!unlock</span></code>
+        </div>
+        <p>Unlocks the current channel you sent the message in.</p>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!unlock</span> <span class="example-channel">#general</span> <span class="example-reason">server raid has been solved</span></code>
+        </div>
+        <p>Unlocks the channel you want, whichever you are in. In this case, you are locking <code>#general</code> using another channel. It also sets "server raid has been solved" as reason for unlocking (optional).</p>
+        <img src="/img/unlock.webp" alt="Unlock command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Lock all (tlt!lockall)</h4>
+        <p>This command locks a group of channel I have set manually. All you need to know is: using tlt!lockall will lock ALL the text-able channels from non-mod users.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!lockall</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!lockall</span> <span class="example-reason">massive server raid</span></code>
+        </div>
+        <p>Locks all channels so that non-mod users can't talk or join VCs. Giving "massive server raid" as a reason (optional.)</p>
+        <img src="/img/lockall.webp" alt="Lockall command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Unlock all (tlt!unlockall)</h4>
+        <p>Unlocks the group of channel I set before, so that non-mod users have access to them again.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!unlockall</span> <span class="example-reason">[reason]</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!unlockall</span> <span class="example-reason">massive server raid solved</span></code>
+        </div>
+        <p>Unlocks all channels. Non-mod users can now talk and join VCs. "massive server raid" is set as reason for unlocking them.</p>
+        <img src="/img/unlockall.webp" alt="Unlockall command result" loading="lazy" decoding="async">
+      </div>
+    </div>
+
+    <!-- ─── Info Moderation -->
+    <div class="commands-section">
+      <h3 id="info-moderation">Info moderation</h3>
+      <p>We as mods can get info from many things using some commands.</p>
+      <p><strong>IMPORTANT:</strong> you are NOT forced to know or memorize these commands, as they are just extra stuff that will barely be used unless absolutely needed. You're mostly done, trust me.</p>
+  
+      <div class="command">
+        <h4>User info (tlt!userinfo)</h4>
+        <p>Outputs an embed with info about the user's profile. User, user ID, how old the account is, the avatar (tiny), banner, avatar decoration, server tag, the server ID for the server tag, and when they joined the server.</p>
+        <p>If you don't specify a user, the bot will output your user info instead.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!userinfo</span> <span class="example-user">@user/userID</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!userinfo</span> <span class="example-user">@Sam Haft</span></code>
+        </div>
+        <img src="/img/userinfo.webp" alt="Userinfo command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Avatar info (tlt!avatarinfo)</h4>
+        <p>Displays the pfp of the user in a bigger scale.</p>
+        <p>If you don't specify a user, the bot will output your pfp instead.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!avatarinfo</span> <span class="example-user">@user/userID</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!avatarinfo</span> <span class="example-user">@Sam Haft</span></code>
+        </div>
+        <img src="/img/avatarinfo.webp" alt="Avatarinfo command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Banner info (tlt!bannerinfo)</h4>
+        <p>Displays the banner of the user in a bigger scale.</p>
+        <p>If you don't specify a user, the bot will output your banner instead.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!bannerinfo</span> <span class="example-user">@user/userID</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!bannerinfo</span> <span class="example-user">@Sam Haft</span></code>
+        </div>
+        <img src="/img/bannerinfo.webp" alt="Bannerinfo command result" loading="lazy" decoding="async">
+      </div>
+  
+      <div class="command">
+        <h4>Role info (tlt!roleinfo)</h4>
+        <p>Shows info about a role, like its ID, hex color, number of members with it, time it was created, whether it's hoisted or not, its position, and an extensive list of its permissions.</p>
+        <p>If no role is specified, Sapphire will instead show a list of the roles sorted by hierarchy, and then another list of those same roles, but sorted by number of members.</p>
+        <h5>Syntax</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!roleinfo</span> <span class="example-role">@role</span></code>
+        </div>
+        <h5>Example</h5>
+        <div class="example-structure">
+          <code><span class="example-prefix">tlt!roleinfo</span> <span class="example-role">@Corpse (Community Manager)</span></code>
+        </div>
+        <img src="/img/roleinfo.webp" alt="Roleinfo command result" loading="lazy" decoding="async">
+        <img src="/img/roleinfo.empty.webp" alt="Roleinfo empty result" loading="lazy" decoding="async">
+      </div>
+    </div>
+  </div>
+  </div><!-- big ass .container class -->
+  </div>
+  <!-- Navigation Pills -->
+  <nav class="nav-pills" aria-label="Section navigation">
+    <div class="nav-pill" data-target="base-commands"   role="button" tabindex="0" aria-label="Base commands"></div>
+    <div class="nav-pill" data-target="mass-commands"   role="button" tabindex="0" aria-label="Mass commands"></div>
+    <div class="nav-pill" data-target="name-commands"   role="button" tabindex="0" aria-label="Name commands"></div>
+    <div class="nav-pill" data-target="purge-messages"  role="button" tabindex="0" aria-label="Purge messages"></div>
+    <div class="nav-pill" data-target="channel-locking" role="button" tabindex="0" aria-label="Channel locking"></div>
+    <div class="nav-pill" data-target="info-moderation" role="button" tabindex="0" aria-label="Info moderation"></div>
+  </nav>
+
+  <script>
+    (function () {
+      'use strict';
+
+      var pills    = document.querySelectorAll('.nav-pill');
+      var sections = document.querySelectorAll('h3[id]');
+      var rafPending = false;
+
+      function updateActivePill() {
+        var mid = window.scrollY + window.innerHeight / 2;
+        var activeId = null;
+
+        for (var i = 0; i < sections.length; i++) {
+          if (sections[i].offsetTop <= mid) activeId = sections[i].id;
+        }
+
+        for (var j = 0; j < pills.length; j++) {
+          var matches = pills[j].dataset.target === activeId;
+          pills[j].classList.toggle('active', matches);
+        }
+      }
+
+      function onScroll() {
+        if (rafPending) return;
+        rafPending = true;
+        requestAnimationFrame(function () {
+          updateActivePill();
+          rafPending = false;
+        });
+      }
+
+      function makeGoTo(pill) {
+        return function () {
+          var target = document.getElementById(pill.dataset.target);
+          if (target) window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+        };
+      }
+
+      for (var k = 0; k < pills.length; k++) {
+        var goTo = makeGoTo(pills[k]);
+        pills[k].addEventListener('click', goTo);
+        pills[k].addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); makeGoTo(this)(); }
+        });
+      }
+
+      window.addEventListener('scroll', onScroll, { passive: true });
+      window.addEventListener('resize', onScroll, { passive: true });
+      updateActivePill();
+    }());
+  </script>
+</body>
+</html>
