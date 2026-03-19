@@ -79,8 +79,8 @@ img {
   box-shadow: 0 0 1rem #000;
 }
 
-.group-of-commands { margin-bottom: clamp(30rem, 6vw, 30rem); }
-.commands-section { margin-top: clamp(15rem, 6vw, 15rem); }
+.group-of-commands { margin-bottom: clamp(15rem, 6vw, 15rem); }
+.commands-section { margin-top: clamp(7.5rem, 6vw, 7.5rem); }
 .command { margin-top: clamp(7.5rem, 3vw, 7.5rem); }
 
 .example-structure {
