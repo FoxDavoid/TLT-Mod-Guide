@@ -1,49 +1,28 @@
-(function () {
-  'use strict';
+'use strict';
 
-  var pills    = document.querySelectorAll('.nav-pill');
-  var sections = document.querySelectorAll('h3[id]');
-  var rafPending = false;
+const pills    = document.querySelectorAll('.nav-pill');
+const sections = document.querySelectorAll('h3[id]');
 
-  function updateActivePill() {
-    var mid = window.scrollY + window.innerHeight / 2;
-    var activeId = null;
+function updateActivePill() {
+  const mid = window.scrollY + window.innerHeight / 2;
+  let activeId = null;
 
-    for (var i = 0; i < sections.length; i++) {
-      if (sections[i].offsetTop <= mid) activeId = sections[i].id;
-    }
-
-    for (var j = 0; j < pills.length; j++) {
-      var matches = pills[j].dataset.target === activeId;
-      pills[j].classList.toggle('active', matches);
-    }
+  for (let i = 0; i < sections.length; i++) {
+    if (sections[i].offsetTop <= mid) activeId = sections[i].id;
   }
 
-  function onScroll() {
-    if (rafPending) return;
-    rafPending = true;
-    requestAnimationFrame(function () {
-      updateActivePill();
-      rafPending = false;
-    });
+  for (let j = 0; j < pills.length; j++) {
+    pills[j].classList.toggle('active', pills[j].dataset.target === activeId);
   }
+}
 
-  function makeGoTo(pill) {
-    return function () {
-      var target = document.getElementById(pill.dataset.target);
-      if (target) window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
-    };
-  }
+for (const pill of pills) {
+  pill.addEventListener('click', () => {
+    const target = document.getElementById(pill.dataset.target);
+    if (target) window.scrollTo({ top: target.offsetTop - 100, behavior: 'smooth' });
+  });
+}
 
-  for (var k = 0; k < pills.length; k++) {
-    var goTo = makeGoTo(pills[k]);
-    pills[k].addEventListener('click', goTo);
-    pills[k].addEventListener('keydown', function (e) {
-      if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); makeGoTo(this)(); }
-    });
-  }
-
-  window.addEventListener('scroll', onScroll, { passive: true });
-  window.addEventListener('resize', onScroll, { passive: true });
-  updateActivePill();
-}());
+window.addEventListener('scroll', () => requestAnimationFrame(updateActivePill), { passive: true });
+window.addEventListener('resize', () => requestAnimationFrame(updateActivePill), { passive: true });
+updateActivePill();
